@@ -1,4 +1,4 @@
-FROM ubuntu:trusty-20170330
+FROM ubuntu:xenial-20170510
 MAINTAINER Lun-Yuan Lee <lunyuanlee@gmail.com>
 # set environment variable
 ENV LANG en_US.UTF-8
@@ -10,8 +10,8 @@ RUN sed -i 's/archive\.ubuntu\.com/tw\.archive\.ubuntu\.com/' /etc/apt/sources.l
 RUN sed -i 's/security.ubuntu.com/free.nchc.org.tw/g' /etc/apt/sources.list
 
 RUN apt-get update \
- && apt-get upgrade -y \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget ca-certificates apt-transport-https \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends vim.tiny wget sudo net-tools ca-certificates apt-transport-https \
  && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL en_US.UTF-8
+
